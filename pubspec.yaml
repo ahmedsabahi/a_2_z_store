@@ -30,6 +30,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^5.0.0
   http: ^0.13.1
+  firebase_core: ^1.0.3
+
+  # Add the dependency for the FlutterFire plugin for Google Analytics
+  firebase_analytics: ^5.0.2
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
