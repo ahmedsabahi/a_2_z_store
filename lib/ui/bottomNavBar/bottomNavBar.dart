@@ -13,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
     SearchScreen(),
     CartScreen(),
     FavoriteScreen(),
-    SignIn(),
+    LoginScreen(),
   ];
 
   @override
