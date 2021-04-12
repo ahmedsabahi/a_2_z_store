@@ -3,7 +3,6 @@ import 'package:a_2_z_store/ui/bottomNavBar/bottomNavBarProvider.dart';
 import 'package:a_2_z_store/ui/cart/cartScreen.dart';
 import 'package:a_2_z_store/ui/favorite/favoriteScreen.dart';
 import 'package:a_2_z_store/ui/home/homeScreen.dart';
-import 'package:a_2_z_store/ui/profile/profileScreen.dart';
 import 'package:a_2_z_store/ui/search/searchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
