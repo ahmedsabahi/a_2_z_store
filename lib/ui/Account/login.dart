@@ -1,6 +1,6 @@
 
-import 'package:a_2_z_store/Account/register.dart';
-import 'package:a_2_z_store/Account/reset_pass.dart';
+import 'package:a_2_z_store/ui/Account/register.dart';
+import 'package:a_2_z_store/ui/Account/reset_pass.dart';
 import 'package:a_2_z_store/widgets/homeScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

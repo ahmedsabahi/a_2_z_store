@@ -1,9 +1,12 @@
 import 'package:a_2_z_store/ui/bottomNavBar/bottomNavBar.dart';
 import 'package:a_2_z_store/ui/bottomNavBar/bottomNavBarProvider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
