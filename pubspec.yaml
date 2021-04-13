@@ -33,7 +33,7 @@ dependencies:
   firebase_core: ^1.0.3
   firebase_auth: ^1.0.3
   fluttertoast: ^8.0.3
-
+  grouped_list: ^4.0.0
 
 
 dev_dependencies:
