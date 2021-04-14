@@ -1,5 +1,4 @@
 import 'package:a_2_z_store/widgets/brandsCategory/brandsCategoryProvider.dart';
-import 'package:grouped_list/grouped_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

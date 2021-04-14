@@ -2,10 +2,7 @@ import 'dart:async';
 
 import 'package:a_2_z_store/ui/Account/auth_provider.dart';
 import 'package:a_2_z_store/ui/Account/login_screen.dart';
-import 'package:a_2_z_store/widgets/background_painter.dart';
-import 'package:a_2_z_store/widgets/build_loading.dart';
 import 'package:a_2_z_store/widgets/profle_wedgit.dart';
-import 'package:circular_custom_loader/circular_custom_loader.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
