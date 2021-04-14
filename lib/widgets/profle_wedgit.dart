@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
           height: 300,
           width: 300,
           child: Text(
-            "Profile Screen",
+            "Profile",
             style: TextStyle(color: Colors.white, fontSize: 30),
           ),
           color: Colors.blue,
