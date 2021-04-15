@@ -1,4 +1,5 @@
-import 'package:a_2_z_store/ui/Account/login.dart';
+
+import 'package:a_2_z_store/ui/Account/profile_screen.dart';
 import 'package:a_2_z_store/ui/bottomNavBar/bottomNavBarProvider.dart';
 import 'package:a_2_z_store/ui/cart/cartScreen.dart';
 import 'package:a_2_z_store/ui/favorite/favoriteScreen.dart';
@@ -18,7 +19,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     SearchScreen(),
     CartScreen(),
     FavoriteScreen(),
-    LoginScreen(),
+    ProfileScreen(),
   ];
 
   @override
