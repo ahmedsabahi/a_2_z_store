@@ -53,6 +53,7 @@ class Women extends StatelessWidget {
                       final category =
                           brandsCategoryProvider.list.brands[2].children[index];
                       return ListTile(
+                        leading: Image.asset("images/launch_image.png"),
                         title: Text(category.content.title),
                       );
                     },

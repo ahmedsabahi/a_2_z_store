@@ -10,8 +10,8 @@ class AsosRepository {
     return _asosRepository.fetchCategoriesList();
   }
 
-  Future<ProductList> fetchProductList(int categoryId) {
-    return _asosRepository.fetchProductList(categoryId);
+  Future<List<Product>> fetchProductList(int offset, int categoryId) {
+    return _asosRepository.fetchProductList(offset, categoryId);
   }
 
   Future<ProductDetails> fetchProductDetails(int productId) {

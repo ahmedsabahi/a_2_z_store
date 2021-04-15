@@ -1,4 +1,3 @@
-import 'package:a_2_z_store/ui/search/searchScreenProvider.dart';
 import 'package:a_2_z_store/widgets/brandsCategory/men.dart';
 import 'package:a_2_z_store/widgets/brandsCategory/women.dart';
 import 'package:flutter/material.dart';
