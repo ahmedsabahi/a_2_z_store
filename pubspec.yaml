@@ -36,12 +36,6 @@ dependencies:
   google_sign_in: ^5.0.1
   font_awesome_flutter: ^9.0.0
   flutter_signin_button: ^2.0.0
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 23ba3f48129c007899364a437e699c7c1f8b5947
-
 
 dev_dependencies:
   flutter_test:
