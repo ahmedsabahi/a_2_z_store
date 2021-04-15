@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 class HomeProvider extends ChangeNotifier {
   AsosRepository _asosRepository = AsosRepository();
 
-  HomeProvider() {}
+  HomeProvider();
 }

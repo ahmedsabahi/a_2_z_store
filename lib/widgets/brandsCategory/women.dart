@@ -1,5 +1,4 @@
 import 'package:a_2_z_store/widgets/brandsCategory/brandsCategoryProvider.dart';
-import 'package:grouped_list/grouped_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -54,6 +53,7 @@ class Women extends StatelessWidget {
                       final category =
                           brandsCategoryProvider.list.brands[2].children[index];
                       return ListTile(
+                        leading: Image.asset("images/launch_image.png"),
                         title: Text(category.content.title),
                       );
                     },

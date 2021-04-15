@@ -7,7 +7,12 @@ import 'package:a_2_z_store/ui/search/searchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatefulWidget {
+  @override
+  _BottomNavBarState createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> currentTab = [
     HomeScreen(),
     SearchScreen(),
