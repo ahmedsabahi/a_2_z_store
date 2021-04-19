@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class ProductsListProvider extends ChangeNotifier {
   final int id;
-  // ProductList list;
   int offset = 0;
   List<Product> list = [];
 

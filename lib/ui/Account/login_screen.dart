@@ -34,6 +34,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
         //  resizeToAvoidBottomInset: false,
         key: _scaffoldKey,
         body: ChangeNotifierProvider<AuthProvider>(
@@ -81,7 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0,horizontal: 62.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 16.0, horizontal: 62.0),
                             child: GoogleSignupButtonWidget(),
                           ),
                           Padding(
