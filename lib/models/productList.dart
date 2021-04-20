@@ -22,8 +22,10 @@ class ProductList {
     this.queryId,
     this.discoverSearchProductTypes,
     this.campaigns,
+    this.isFav,
   });
 
+  bool isFav;
   String searchTerm;
   String categoryName;
   int itemCount;

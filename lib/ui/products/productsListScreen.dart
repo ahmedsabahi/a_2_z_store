@@ -1,3 +1,4 @@
+import 'package:a_2_z_store/models/favoriteList.dart';
 import 'package:a_2_z_store/ui/products/productsListProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

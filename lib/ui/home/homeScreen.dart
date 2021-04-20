@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 SingleChildScrollView(
                   child: Column(
                     children: [
-                      Container(height: 150, child: BrandsListWomen()),
+                   //   Container(height: 150, child: BrandsListWomen()),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               color: Colors.black),
                         ),
                       ),
-                      Container(height: 200, child: WomenCategories(),),
+                   //   Container(height: 200, child: WomenCategories(),),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               color: Colors.black),
                         ),
                       ),
-                      Container(height: 250, child: TopWomen()),
+                  //    Container(height: 250, child: TopWomen()),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
@@ -87,8 +87,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               color: Colors.black),
                         ),
                       ),
-                      Container(height: 220, child: OffersWomen(),),
-                      Container(height: 200, child: NewWomen(),),
+                    //  Container(height: 220, child: OffersWomen(),),
+                    //  Container(height: 200, child: NewWomen(),),
                     ],
                   ),
                 ),
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(height: 150, child: BrandsListMen()),
+                  //    Container(height: 150, child: BrandsListMen()),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               color: Colors.black),
                         ),
                       ),
-                      Container(height: 200, child: MenCategories(),),
+                      //Container(height: 200, child: MenCategories(),),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               color: Colors.black),
                         ),
                       ),
-                      Container(height: 250, child: TopMen(),),
+                   //   Container(height: 250, child: TopMen(),),
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
@@ -132,8 +132,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               color: Colors.black),
                         ),
                       ),
-                      Container(height: 220, child: OffersMen(),),
-                      Container(height: 200, child: NewMen(),),
+                  //    Container(height: 220, child: OffersMen(),),
+                  //    Container(height: 200, child: NewMen(),),
                     ],
                   ),
                 ),

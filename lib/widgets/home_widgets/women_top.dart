@@ -1,9 +1,7 @@
 import 'package:a_2_z_store/ui/products/productsListScreen.dart';
 import 'package:a_2_z_store/widgets/brandsCategory/brandsCategoryProvider.dart';
-import 'package:a_2_z_store/widgets/home_widgets/triangle_shape.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shape_of_view/shape_of_view.dart';
 
 class TopWomen extends StatelessWidget {
   @override
