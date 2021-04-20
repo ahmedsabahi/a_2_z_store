@@ -31,14 +31,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, snapshot) {
                 final provider = Provider.of<AuthProvider>(context);
-
                 if (provider.isSigningIn) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasData) {
                   return ProfileWidget();
-                } else {
-                  return LoginScreen();
+                } else if (snapshot.hasError) {
+                  return Text('Error Firebase');
                 }
+                return LoginScreen();
               }),
         ),
       );

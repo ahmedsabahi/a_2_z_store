@@ -1,3 +1,4 @@
+import 'package:a_2_z_store/ui/products/productsListScreen.dart';
 import 'package:a_2_z_store/widgets/brandsCategory/brandsCategoryProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,6 +56,14 @@ class Women extends StatelessWidget {
                       return ListTile(
                         leading: Image.asset("images/launch_image.png"),
                         title: Text(category.content.title),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  ProductsList(id: category.link.categoryId),
+                            ),
+                          );
+                        },
                       );
                     },
                   )

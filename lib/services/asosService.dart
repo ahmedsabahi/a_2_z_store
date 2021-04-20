@@ -11,7 +11,6 @@ class AsosServices {
         'https://asos2.p.rapidapi.com/categories/list?rapidapi-key=7a5b8ea623mshfcb41408397c09ap18e240jsn6e3f3fb908fd&country=US&lang=en-US');
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      print(response.body);
       return categoriesListFromJson(response.body);
     } else {
       throw Exception(
@@ -26,7 +25,6 @@ class AsosServices {
         'https://asos2.p.rapidapi.com/products/v2/list?rapidapi-key=7a5b8ea623mshfcb41408397c09ap18e240jsn6e3f3fb908fd&offset=$offset&categoryId=$categoryId&limit=48&store=US&country=US&currency=USD&sort=freshness&lang=en-US&sizeSchema=US');
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      print(response.body);
       return List<Product>.from((json.decode(response.body)["products"] as List)
           .map((x) => Product.fromJson(x))).toList();
     } else {
@@ -41,7 +39,6 @@ class AsosServices {
         'https://asos2.p.rapidapi.com/products/v3/detail?rapidapi-key=7a5b8ea623mshfcb41408397c09ap18e240jsn6e3f3fb908fd&id=$productId&store=US&sizeSchema=US&lang=en-US&currency=USD');
     final response = await http.get(url);
     if (response.statusCode == 200) {
-      print(response.body);
       return productDetailsFromJson(response.body);
     } else {
       throw Exception(
