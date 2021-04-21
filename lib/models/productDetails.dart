@@ -349,7 +349,7 @@ class Current {
   String conversionId;
 
   factory Current.fromJson(Map<String, dynamic> json) => Current(
-        value: json["value"].toDouble(),
+        value: json["value"],
         text: textValues.map[json["text"]],
         versionId: versionIdValues.map[json["versionId"]],
         conversionId: json["conversionId"],
