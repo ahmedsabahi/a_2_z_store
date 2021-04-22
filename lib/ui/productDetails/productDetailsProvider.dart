@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class ProductDetailsProvider extends ChangeNotifier {
   final int id;
   ProductDetails data;
+  var dropDownValue;
 
   AsosRepository _asosRepository = AsosRepository();
 
@@ -17,5 +18,10 @@ class ProductDetailsProvider extends ChangeNotifier {
       data = newData;
       notifyListeners();
     });
+  }
+
+  void dropDown(String newval) {
+    dropDownValue = newval;
+    notifyListeners();
   }
 }

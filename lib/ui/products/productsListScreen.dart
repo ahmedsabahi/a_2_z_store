@@ -17,7 +17,8 @@ class ProductsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("product List"),
+        title: Text("Product List"),
+        backgroundColor: Color(0xff363640),
       ),
       body: ChangeNotifierProvider<ProductsListProvider>(
         create: (context) => ProductsListProvider(id),
@@ -38,13 +39,13 @@ class ProductsList extends StatelessWidget {
                     itemBuilder: (BuildContext context, index) {
                       final pro = productsList[index];
                       return GestureDetector(
-                        // onTap: () {
-                        //   Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => ProductDetailsScreen(
-                        //       id: pro.id,
-                        //     ),
-                        //   ));
-                        // },
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ProductDetailsScreen(
+                              id: pro.id,
+                            ),
+                          ));
+                        },
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15.0),
@@ -53,58 +54,61 @@ class ProductsList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Expanded(
-                          child: Stack(
-                          fit: StackFit.expand,
-                            children: <Widget>[
-                                   Align(
-                                    alignment: Alignment.center,
-                                    child: Hero(
-                                      tag: pro.id,
-                                      child: Image.network(
-                                        'https://${pro.imageUrl}',
-                                        fit: BoxFit.cover,
-                                        // width: double.infinity,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.45,
-                                      ),
-                                    ),
-                                  ),
-                              ChangeNotifierProvider<FavoriteList>(
-                                create: (context) => FavoriteList(),
-                                child:  Consumer<FavoriteList>(
-                                  builder: (context, favoriteList, _) => Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Container(
+                                child: Stack(
+                                  fit: StackFit.expand,
+                                  children: <Widget>[
+                                    Align(
                                       alignment: Alignment.center,
-                                      width: 55,
-                                      height: 55,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          shape: BoxShape.circle
-                                      ),
-                                      child: IconButton(
-
-                                        icon: Icon(favoriteList.isFavorite(pro.id.toString())
-                                            ? Icons.favorite
-                                            : Icons.favorite_border,
+                                      child: Hero(
+                                        tag: pro.id,
+                                        child: Image.network(
+                                          'https://${pro.imageUrl}',
+                                          fit: BoxFit.cover,
+                                          // width: double.infinity,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.45,
                                         ),
-                                        iconSize: 35,
-                                        autofocus: true,
-                                        highlightColor: Colors.red,
-                                        hoverColor: Colors.pink,
-                                        onPressed: () {
-                                          favoriteList.toggle(pro.id.toString());
-                                          print(favoriteList.isFavorite(pro.id.toString()));
-                                          //  print(unlockedList.isUnlocked(pro.id.toString()));
-                                        },
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ),
-
-                          ],
+                                    ChangeNotifierProvider<FavoriteList>(
+                                      create: (context) => FavoriteList(),
+                                      child: Consumer<FavoriteList>(
+                                        builder: (context, favoriteList, _) =>
+                                            Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            width: 55,
+                                            height: 55,
+                                            decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                shape: BoxShape.circle),
+                                            child: IconButton(
+                                              icon: Icon(
+                                                favoriteList.isFavorite(
+                                                        pro.id.toString())
+                                                    ? Icons.favorite
+                                                    : Icons.favorite_border,
+                                              ),
+                                              iconSize: 35,
+                                              autofocus: true,
+                                              highlightColor: Colors.red,
+                                              hoverColor: Colors.pink,
+                                              onPressed: () {
+                                                favoriteList
+                                                    .toggle(pro.id.toString());
+                                                print(favoriteList.isFavorite(
+                                                    pro.id.toString()));
+                                                //  print(unlockedList.isUnlocked(pro.id.toString()));
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Container(
