@@ -4,8 +4,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 class FavoriteList with ChangeNotifier {
   List<String> _favoriteIds = [];
   List<String> get ids => _favoriteIds;
+  final ScrollController scrollController = ScrollController();
 
   FavoriteList() {
+    scrollController
+      ..addListener(() {
+        var triggerFetchMoreSize =
+            0.7 * scrollController.position.maxScrollExtent;
+        if (scrollController.position.pixels > triggerFetchMoreSize) {
+          load();
+        }
+      });
     load();
   }
 

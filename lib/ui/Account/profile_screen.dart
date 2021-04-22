@@ -15,6 +15,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   Timer timer;
 
+
   @override
   void initState() {
     timer = Timer.periodic(Duration(seconds: 100), (timer) {
@@ -22,6 +23,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -34,11 +36,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 if (provider.isSigningIn) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasData) {
-                  return ProfileWidget();
+                  return LoggedInWidget();
                 } else if (snapshot.hasError) {
                   return Text('Error Firebase');
+                }else {
+                  return LoginScreen();
                 }
-                return LoginScreen();
               }),
         ),
       );

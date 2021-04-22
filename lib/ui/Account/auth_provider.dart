@@ -40,9 +40,9 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  //google logout
+  // logout
   void logout() async {
-    await googleSignIn.disconnect();
+    await
     FirebaseAuth.instance.signOut();
   }
 
@@ -54,16 +54,22 @@ class AuthProvider extends ChangeNotifier {
       return;
     }
      FirebaseAuth auth = FirebaseAuth.instance;
-     if (auth.currentUser == null) {
-       isSigningIn = false;
-       return;
-     }else {
+    // if (auth.currentUser == null) {
+      // isSigningIn = false;
+      // return;
+   //  }else {
        try {
          final User user = (await _auth.signInWithEmailAndPassword(
            email: email,
            password: password,
          ))
              .user;
+    if(user != null){
+    //UserUpdateInfo updateUser = UserUpdateInfo();
+  //  updateUser.displayName = _usernameController.text;
+  //  user.updateProfile(updateUser);
+  //  Navigator.of(context).pushNamed(AppRoutes.menu);
+    }
          if (!user.emailVerified) {
            await user.sendEmailVerification();
          }
@@ -76,8 +82,8 @@ class AuthProvider extends ChangeNotifier {
        } catch (e) {
          print(e);
        }
-       isSigningIn = false;
-     }
+     //  isSigningIn = false;
+   //  }
   }
 
   //Email And Password sign up
@@ -87,11 +93,11 @@ class AuthProvider extends ChangeNotifier {
       Fluttertoast.showToast(msg: "Enter valid email");
       return;
     }
-     FirebaseAuth auth = FirebaseAuth.instance;
-     if (auth.currentUser == null) {
-       isSigningIn = false;
-       return;
-     }else {
+    // FirebaseAuth auth = FirebaseAuth.instance;
+    // if (auth.currentUser == null) {
+     //  isSigningIn = false;
+   //    return;
+   //  }else {
        try {
          await _auth.createUserWithEmailAndPassword(
              email: email, password: password);
@@ -104,8 +110,8 @@ class AuthProvider extends ChangeNotifier {
        } catch (e) {
          print(e);
        }
-       isSigningIn = false;
-     }
+     //  isSigningIn = false;
+   //  }
   }
 
   //reset password

@@ -38,13 +38,13 @@ class ProductsList extends StatelessWidget {
                     itemBuilder: (BuildContext context, index) {
                       final pro = productsList[index];
                       return GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => ProductDetailsScreen(
-                              id: pro.id,
-                            ),
-                          ));
-                        },
+                        // onTap: () {
+                        //   Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (context) => ProductDetailsScreen(
+                        //       id: pro.id,
+                        //     ),
+                        //   ));
+                        // },
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15.0),
@@ -53,19 +53,58 @@ class ProductsList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Expanded(
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Hero(
-                                    tag: pro.id,
-                                    child: Image.network(
-                                      'https://${pro.imageUrl}',
-                                      fit: BoxFit.cover,
-                                      // width: double.infinity,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.45,
+                          child: Stack(
+                          fit: StackFit.expand,
+                            children: <Widget>[
+                                   Align(
+                                    alignment: Alignment.center,
+                                    child: Hero(
+                                      tag: pro.id,
+                                      child: Image.network(
+                                        'https://${pro.imageUrl}',
+                                        fit: BoxFit.cover,
+                                        // width: double.infinity,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.45,
+                                      ),
                                     ),
                                   ),
+                              ChangeNotifierProvider<FavoriteList>(
+                                create: (context) => FavoriteList(),
+                                child:  Consumer<FavoriteList>(
+                                  builder: (context, favoriteList, _) => Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: 55,
+                                      height: 55,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle
+                                      ),
+                                      child: IconButton(
+
+                                        icon: Icon(favoriteList.isFavorite(pro.id.toString())
+                                            ? Icons.favorite
+                                            : Icons.favorite_border,
+                                        ),
+                                        iconSize: 35,
+                                        autofocus: true,
+                                        highlightColor: Colors.red,
+                                        hoverColor: Colors.pink,
+                                        onPressed: () {
+                                          favoriteList.toggle(pro.id.toString());
+                                          print(favoriteList.isFavorite(pro.id.toString()));
+                                          //  print(unlockedList.isUnlocked(pro.id.toString()));
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                          ],
                                 ),
                               ),
                               Container(

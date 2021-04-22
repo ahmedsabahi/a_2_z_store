@@ -34,12 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
         //  resizeToAvoidBottomInset: false,
         key: _scaffoldKey,
         body: ChangeNotifierProvider<AuthProvider>(
