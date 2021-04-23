@@ -10,8 +10,11 @@ class FavoriteScreen extends StatelessWidget {
 
   FavoriteScreen({
     Key key,
-    // @required this.id,
   }) : super(key: key);
+
+  int discountFormula(double previous, double current) {
+    return ((current / previous) * 100 - 100).toInt();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +28,9 @@ class FavoriteScreen extends StatelessWidget {
         create: (context) => FavoriteList(),
         child: Consumer<FavoriteList>(
           builder: (context, favoriteList, _) {
-            return GridView.builder(
+            return ListView.builder(
                 controller: favoriteList.scrollController,
-                shrinkWrap: true,
-                padding: EdgeInsets.all(5.0),
                 itemCount: favoriteList.ids.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 5.0,
-                    crossAxisSpacing: 5.0,
-                    childAspectRatio: 2 / 3),
                 itemBuilder: (BuildContext context, index) {
                   final pro = favoriteList.ids[index];
                   return ChangeNotifierProvider<ProductDetailsProvider>(
@@ -43,119 +39,157 @@ class FavoriteScreen extends StatelessWidget {
                       builder: (context, productDetailsProvider, child) {
                         final item = productDetailsProvider.data;
                         return (productDetailsProvider.data != null)
-                            ? Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      child: Align(
-                                        alignment: Alignment.center,
+                            ? Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 20),
                                         child: Hero(
                                           tag: item.id,
-                                          child: Image.network(
-                                            'https://${item.media.images[0].url}',
-                                            fit: BoxFit.cover,
-                                            // width: double.infinity,
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.45,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      padding: const EdgeInsets.all(10.0),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(9.0),
-                                        ),
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                        children: [
-                                          Align(
-                                            alignment: Alignment.centerLeft,
-                                            child: Text(
-                                              "${item.brand.name}",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1
-                                                  .copyWith(
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                          child: Container(
+                                            width: 80,
+                                            height: 100,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.rectangle,
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: NetworkImage(
+                                                  'https://${item.media.images[1].url}',
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                          (item.price.current.value ==
-                                                      item.price.previous
-                                                          .value &&
-                                                  item.price.current.value !=
-                                                      null)
-                                              ? Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 8.0,
-                                                          bottom: 8.0),
-                                                  child: Text(
-                                                    "\$${item.price.current.value}",
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .subtitle2
-                                                        .copyWith(
-                                                            color: Colors.black,
-                                                            // fontSize: 20,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
-                                                  ),
-                                                )
-                                              : Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      '\$${item.price.previous.value}',
+                                        ),
+                                      ),
+                                      Flexible(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              item.name,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 10.0,
+                                            ),
+                                            (item.price.current.value ==
+                                                        item.price.previous
+                                                            .value &&
+                                                    item.price.current.value !=
+                                                        null)
+                                                ? Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 8.0,
+                                                            bottom: 8.0),
+                                                    child: Text(
+                                                      "\$${item.price.current.value}",
                                                       style: Theme.of(context)
                                                           .textTheme
                                                           .subtitle2
                                                           .copyWith(
                                                               color:
                                                                   Colors.black,
-                                                              decoration:
-                                                                  TextDecoration
-                                                                      .lineThrough,
-                                                              fontSize: 12),
+                                                              fontSize: 20,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              top: 8.0),
-                                                      child: Text(
-                                                        "\$${item.price.current.value}",
-                                                        style: Theme.of(context)
-                                                            .textTheme
-                                                            .subtitle2
-                                                            .copyWith(
-                                                                color:
-                                                                    Colors.red,
-                                                                // fontSize: 20,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                      ),
+                                                  )
+                                                : Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 8.0,
+                                                            bottom: 8.0),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          '\$${item.price.previous.value}',
+                                                          style: Theme.of(
+                                                                  context)
+                                                              .textTheme
+                                                              .subtitle2
+                                                              .copyWith(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  decoration:
+                                                                      TextDecoration
+                                                                          .lineThrough,
+                                                                  fontSize: 13),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  top: 8.0),
+                                                          child: Row(
+                                                            children: [
+                                                              Text(
+                                                                "\$${item.price.current.value}  ",
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .textTheme
+                                                                    .subtitle2
+                                                                    .copyWith(
+                                                                        color: Colors
+                                                                            .red,
+                                                                        fontSize:
+                                                                            20,
+                                                                        fontWeight:
+                                                                            FontWeight.w600),
+                                                              ),
+                                                              Text(
+                                                                "(${discountFormula(item.price.previous.value, item.price.current.value)}%)",
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .textTheme
+                                                                    .subtitle2
+                                                                    .copyWith(
+                                                                        color: Colors
+                                                                            .red,
+                                                                        fontSize:
+                                                                            13,
+                                                                        fontWeight:
+                                                                            FontWeight.w600),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
+                                                  ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.delete_forever,
+                                                    size: 20),
+                                                Text(
+                                                  " Remove",
                                                 ),
-                                        ],
+                                                VerticalDivider(),
+                                                Icon(Icons.add_shopping_cart,
+                                                    size: 20),
+                                                Text(
+                                                  " Move to Cart",
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    )
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               )
                             : Center(child: CircularProgressIndicator());
@@ -163,7 +197,6 @@ class FavoriteScreen extends StatelessWidget {
                     ),
                   );
                 });
-            //
           },
         ),
       ),
