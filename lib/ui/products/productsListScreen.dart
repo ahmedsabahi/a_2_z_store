@@ -13,6 +13,10 @@ class ProductsList extends StatelessWidget {
     @required this.id,
   }) : super(key: key);
 
+  int discountFormula(double previous, double current) {
+    return ((current / previous) * 100 - 100).toInt();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,6 @@ class ProductsList extends StatelessWidget {
                 ? GridView.builder(
                     controller: productsListProvider.scrollController,
                     shrinkWrap: true,
-                    padding: EdgeInsets.all(5.0),
                     itemCount: productsList.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
@@ -46,128 +49,98 @@ class ProductsList extends StatelessWidget {
                             ),
                           ));
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: <Widget>[
-                                    Align(
-                                      alignment: Alignment.center,
-                                      child: Hero(
-                                        tag: pro.id,
-                                        child: Image.network(
-                                          'https://${pro.imageUrl}',
-                                          fit: BoxFit.cover,
-                                          // width: double.infinity,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.45,
-                                        ),
-                                      ),
-                                    ),
-                                    ChangeNotifierProvider<FavoriteList>(
-                                      create: (context) => FavoriteList(),
-                                      child: Consumer<FavoriteList>(
-                                        builder: (context, favoriteList, _) =>
-                                            Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            width: 55,
-                                            height: 55,
-                                            decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                shape: BoxShape.circle),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                favoriteList.isFavorite(
-                                                        pro.id.toString())
-                                                    ? Icons.favorite
-                                                    : Icons.favorite_border,
-                                              ),
-                                              iconSize: 35,
-                                              autofocus: true,
-                                              highlightColor: Colors.red,
-                                              hoverColor: Colors.pink,
-                                              onPressed: () {
-                                                favoriteList
-                                                    .toggle(pro.id.toString());
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Align(
                                 alignment: Alignment.center,
-                                padding: const EdgeInsets.all(10.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(9.0),
+                                child: Hero(
+                                  tag: pro.id,
+                                  child: Image.network(
+                                    'https://${pro.imageUrl}',
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        "${pro.brandName}",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1
-                                            .copyWith(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                            Center(
+                              child: Text(
+                                "${pro.brandName}",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .copyWith(
+                                      color: Colors.black54,
+                                    ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  13.0, 0.0, 10.0, 0.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  (pro.price.previous.value == null)
+                                      ? Text(
+                                          "${pro.price.current.text}",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .subtitle1
+                                              .copyWith(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w600),
+                                        )
+                                      : Column(
+                                          children: [
+                                            Text(
+                                              "${pro.price.previous.text}",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .subtitle2
+                                                  .copyWith(
+                                                      color: Colors.black,
+                                                      decoration: TextDecoration
+                                                          .lineThrough,
+                                                      fontSize: 12),
+                                            ),
+                                            Text(
+                                              "${pro.price.current.text}",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .subtitle1
+                                                  .copyWith(
+                                                      color: Colors.red,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                            ),
+                                          ],
+                                        ),
+                                  ChangeNotifierProvider<FavoriteList>(
+                                    create: (context) => FavoriteList(),
+                                    child: Consumer<FavoriteList>(
+                                      builder: (context, favoriteList, _) =>
+                                          IconButton(
+                                        icon: Icon(
+                                          favoriteList
+                                                  .isFavorite(pro.id.toString())
+                                              ? Icons.favorite
+                                              : Icons.favorite_border,
+                                        ),
+                                        iconSize: 25,
+                                        autofocus: true,
+                                        onPressed: () {
+                                          favoriteList
+                                              .toggle(pro.id.toString());
+                                        },
                                       ),
                                     ),
-                                    (pro.price.previous.value == null)
-                                        ? Text(
-                                            "${pro.price.current.text}",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .subtitle2
-                                                .copyWith(color: Colors.black),
-                                          )
-                                        : Column(
-                                            children: [
-                                              Text(
-                                                "${pro.price.previous.text}",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .subtitle2
-                                                    .copyWith(
-                                                        color: Colors.black,
-                                                        decoration:
-                                                            TextDecoration
-                                                                .lineThrough,
-                                                        fontSize: 10),
-                                              ),
-                                              Text(
-                                                "${pro.price.current.text}",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .subtitle2
-                                                    .copyWith(
-                                                        color: Colors.red),
-                                              ),
-                                            ],
-                                          )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       );
                     },

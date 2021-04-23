@@ -20,8 +20,8 @@ class ProductDetailsScreen extends StatelessWidget {
     return htmlText.replaceAll(exp, '');
   }
 
-  double discountFormula(double previous, double current) {
-    return ((current / previous) * 100 - 100);
+  int discountFormula(double previous, double current) {
+    return ((current / previous) * 100 - 100).toInt();
   }
 
   @override
