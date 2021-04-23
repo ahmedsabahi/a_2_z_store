@@ -14,7 +14,6 @@ class _SearchScreenState extends State<SearchScreen>
   final List<Tab> listTab = [
     Tab(text: 'Men'),
     Tab(text: 'Women'),
-    Tab(text: 'Kids'),
   ];
 
   @override
@@ -22,7 +21,7 @@ class _SearchScreenState extends State<SearchScreen>
     _tabController = TabController(length: listTab.length, vsync: this);
 
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
           appBar: AppBar(
             title: Text('A2Z Brands'),
@@ -44,7 +43,6 @@ class _SearchScreenState extends State<SearchScreen>
                   children: <Widget>[
                     Men(),
                     Women(),
-                    Text("kids"),
                   ],
                 ),
               ],

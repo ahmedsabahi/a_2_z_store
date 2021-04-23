@@ -99,9 +99,6 @@ class ProductsList extends StatelessWidget {
                                               onPressed: () {
                                                 favoriteList
                                                     .toggle(pro.id.toString());
-                                                print(favoriteList.isFavorite(
-                                                    pro.id.toString()));
-                                                //  print(unlockedList.isUnlocked(pro.id.toString()));
                                               },
                                             ),
                                           ),
