@@ -47,4 +47,6 @@ class FavoriteList with ChangeNotifier {
     save();
     notifyListeners();
   }
+
 }
+
