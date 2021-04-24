@@ -53,7 +53,7 @@ class FavoriteScreen extends StatelessWidget {
                                           tag: item.id,
                                           child: Container(
                                             width: 80,
-                                            height: 100,
+                                            height: 120,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.rectangle,
                                               image: DecorationImage(
