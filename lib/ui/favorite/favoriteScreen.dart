@@ -59,7 +59,7 @@ class FavoriteScreen extends StatelessWidget {
                                               image: DecorationImage(
                                                 fit: BoxFit.cover,
                                                 image: NetworkImage(
-                                                  'https://${item.media.images[1].url}',
+                                                  'https://${item.media.images[0].url}',
                                                 ),
                                               ),
                                             ),

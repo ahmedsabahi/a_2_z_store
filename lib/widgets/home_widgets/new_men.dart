@@ -1,7 +1,6 @@
 
 import 'package:a_2_z_store/ui/products/productsListScreen.dart';
 import 'package:a_2_z_store/widgets/brandsCategory/brandsCategoryProvider.dart';
-import 'package:a_2_z_store/widgets/home_widgets/triangle_shape.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +22,7 @@ class NewMen extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[1].children[1].children[0].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[1].children[1].children[0].link.categoryId),
                           ),
                         );
                       },

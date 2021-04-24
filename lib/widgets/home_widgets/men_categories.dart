@@ -25,7 +25,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[1].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[1].link.categoryId),
                           ),
                         );
                       },
@@ -70,7 +70,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[3].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[3].link.categoryId),
                           ),
                         );
                       },
@@ -137,7 +137,7 @@ class MenCategories extends StatelessWidget {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[4].link.categoryId),
+                                          ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[4].link.categoryId),
                                     ),
                                   );
                                 },
@@ -181,7 +181,7 @@ class MenCategories extends StatelessWidget {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[5].link.categoryId),
+                                          ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[5].link.categoryId),
                                     ),
                                   );
                                 },
@@ -225,7 +225,7 @@ class MenCategories extends StatelessWidget {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[11].link.categoryId),
+                                          ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[11].link.categoryId),
                                     ),
                                   );
                                 },
@@ -247,7 +247,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[12].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[12].link.categoryId),
                           ),
                         );
                       },
@@ -291,7 +291,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[14].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[14].link.categoryId),
                           ),
                         );
                       },
@@ -335,7 +335,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[17].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[17].link.categoryId),
                           ),
                         );
                       },
@@ -379,7 +379,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[3].children[1].children[15].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[3].children[1].children[15].link.categoryId),
                           ),
                         );
                       },
@@ -423,7 +423,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[4].children[1].children[0].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[4].children[1].children[0].link.categoryId),
                           ),
                         );
                       },
@@ -467,7 +467,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[4].children[1].children[2].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[4].children[1].children[2].link.categoryId),
                           ),
                         );
                       },
@@ -511,7 +511,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[5].children[1].children[0].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[5].children[1].children[0].link.categoryId),
                           ),
                         );
                       },
@@ -555,7 +555,7 @@ class MenCategories extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[3].children[4].children[1].children[2].link.categoryId),
+                                ProductsList(id: brandsCategoryProvider.list.navigation[0].children[4].children[4].children[1].children[2].link.categoryId),
                           ),
                         );
                       },

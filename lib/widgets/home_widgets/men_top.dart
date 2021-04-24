@@ -11,7 +11,7 @@ class TopMen extends StatelessWidget {
         create: (context) => BrandsCategoryProvider(),
         child: Consumer<BrandsCategoryProvider>(
           builder: (context, brandsCategoryProvider, _) {
-            if ((brandsCategoryProvider.list != null)) {
+            if (brandsCategoryProvider.list != null) {
               return SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -26,7 +26,7 @@ class TopMen extends StatelessWidget {
                                   id: brandsCategoryProvider
                                       .list
                                       .navigation[0]
-                                      .children[3]
+                                      .children[4]
                                       .children[2]
                                       .children[1]
                                       .children[0]
@@ -74,7 +74,7 @@ class TopMen extends StatelessWidget {
                                   id: brandsCategoryProvider
                                       .list
                                       .navigation[0]
-                                      .children[3]
+                                      .children[4]
                                       .children[2]
                                       .children[1]
                                       .children[3]
@@ -120,7 +120,7 @@ class TopMen extends StatelessWidget {
                                   id: brandsCategoryProvider
                                       .list
                                       .navigation[0]
-                                      .children[3]
+                                      .children[4]
                                       .children[2]
                                       .children[1]
                                       .children[4]
@@ -165,7 +165,7 @@ class TopMen extends StatelessWidget {
                                   id: brandsCategoryProvider
                                       .list
                                       .navigation[0]
-                                      .children[3]
+                                      .children[4]
                                       .children[2]
                                       .children[1]
                                       .children[7]
@@ -210,21 +210,5 @@ class TopMen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class CustomTriangleClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, 0);
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
   }
 }

@@ -25,7 +25,7 @@ class OffersWomen extends StatelessWidget {
                                 id: brandsCategoryProvider
                                     .list
                                     .navigation[1]
-                                    .children[3]
+                                    .children[4]
                                     .children[0]
                                     .children[1]
                                     .children[1]
@@ -85,7 +85,7 @@ class OffersWomen extends StatelessWidget {
                                 id: brandsCategoryProvider
                                     .list
                                     .navigation[1]
-                                    .children[3]
+                                    .children[4]
                                     .children[6]
                                     .children[2]
                                     .children[0]
